@@ -37,11 +37,14 @@ d3.json(queryUrl, function(data) {
   L.circle([feature[i].geometry.coordinates[1], feature[i].geometry.coordinates[0]], {
     fillOpacity: 0.5,
     color: "black",
-    weight: 1,
+    weight: 0.4,
     fillColor: getColor(feature[i].properties.mag),
     // Adjust radius
     radius: feature[i].properties.mag * 20000
-  }).bindPopup("<h1>" + feature[i].properties.place + "</h1> <hr> <h3>Magnitude: " + feature[i].properties.mag + "</h3>" ).addTo(myMap);
+  }).bindPopup("<h1>" + feature[i].properties.place + "</h1> <hr> <h3>Magnitude: " + feature[i].properties.mag + 
+  "</h3>" + "<h3> Date/Time: " + new Date(feature[i].properties.time).toJSON() + "</h3>" +  
+  "<h3> Significance (1-1000): " + feature[i].properties.sig + "</h3>")
+    .addTo(myMap);
 
 }
 
@@ -52,15 +55,21 @@ var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 1, 2, 3, 4, 5]
+    var div = L.DomUtil.create('div', 'legend'),
+        grades = [0, 1, 2, 3, 4, 5],
+        labels = [],
+        from, to;
 
     for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        from = grades[i];
+        to = grades[i + 1];
+
+        labels.push(
+            '<i style="background:' + getColor(from + 1) + '"></i> ' +
+            from + (to ? '&ndash;' + to : '+'));
     }
 
+    div.innerHTML = labels.join('<br>');
     return div;
 };
 
