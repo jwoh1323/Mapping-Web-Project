@@ -9,3 +9,5 @@ Data for this visualization is sourced from GeoJSON provided by the United State
 Languages & Tools used: **Javascript**, **Leaflet.js**
 
 Please click [this link](https://jwoh1323.github.io/Mapping-Web-Project/) to see the map visual
+
+![alt text](https://github.com/jwoh1323/Mapping-Web-Project/blob/1e1204c7824bc1d6db446d262626bfcb89515493/folio03.png) 
