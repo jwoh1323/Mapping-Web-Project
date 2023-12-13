@@ -1,6 +1,6 @@
 # Mapping Earthquake
 
-## ABOUT THE PROJECT
+## Project Description
 
 The primary goal of this project is to dynamically visualize earthquake data in real-time. The interactive map displays a comprehensive collection of earthquake occurrences worldwide over the past 7 days. The circles on the map are sized and colored to accurately represent the magnitude of each earthquake.
 
