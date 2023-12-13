@@ -15,7 +15,7 @@ Data for this visualization is sourced from GeoJSON provided by the United State
 Javascript, Leaflet.js
 
 
-## Final Product
+## Project Outcome
 
 Please click [this link](https://jwoh1323.github.io/Mapping-Web-Project/) to see the map visual
 
